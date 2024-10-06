@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SistemaInventarioV1NetCore.AccesoDatos.Data;
 using SistemaInventarioV1NetCore.AccesoDatos.Repositorio.IRepositorio;
+using SistemaInventarioV1NetCore.Utilidades;
 
 namespace SistemaInventarioV1NetCore.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.Role_Admin)]
     public class UsuarioController : Controller
     {
         private readonly IUnidadTrabajo _unidadTrabajo;
